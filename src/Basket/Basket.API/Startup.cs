@@ -32,7 +32,7 @@ namespace Basket.API
         {
             services.AddControllers();
 
-            services.AddSingleton<ConnectionMultiplexer>(x =>
+            services.AddSingleton<IConnectionMultiplexer>(x =>
                    ConnectionMultiplexer.Connect(Configuration.GetValue<string>("RedisConnection")));
 
             services.AddTransient<IBasketContext,BasketContext>();

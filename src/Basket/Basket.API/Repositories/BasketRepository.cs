@@ -35,7 +35,7 @@ namespace Basket.API.Repositories
 
         public async Task<Cart> UpdateBasketItems(Cart cart)
         {
-            var value = JsonConvert.SerializeObject(cart.Items);
+            var value = JsonConvert.SerializeObject(cart);
 
             var updated = await _context
                                     .Redis
