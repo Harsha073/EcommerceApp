@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Basket.API.Data;
 using Basket.API.Data.Interfaces;
 using Basket.API.Repositories;
 using Basket.API.Repositories.Interfaces;
 using EventBusRabbitMQ;
+using EventBusRabbitMQ.Producer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -38,8 +40,8 @@ namespace Basket.API
                    ConnectionMultiplexer.Connect(Configuration.GetValue<string>("RedisConnection")));
 
             services.AddTransient<IBasketContext,BasketContext>();
-
             services.AddTransient<IBasketRepository, BasketRepository>();
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddSwaggerGen(c =>
             {
@@ -65,6 +67,8 @@ namespace Basket.API
 
                 return new RabbitMQConnection(factory);
             });
+
+            services.AddSingleton<EventBusRabbitMQProducer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
