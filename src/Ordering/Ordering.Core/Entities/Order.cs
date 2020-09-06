@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Ordering.Core.Entities.Base;
 
 namespace Ordering.Core.Entities
 {
-    public class Order
+    public class Order : Entity
     {
         public string UserName { get; set; }
         public decimal TotalPrice { get; set; }
