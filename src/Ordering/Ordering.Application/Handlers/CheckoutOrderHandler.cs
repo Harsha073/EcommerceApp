@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Handlers
 {
-    public class CheckoutOrderCommandHandler : IRequestHandler<CheckoutOrderCommand, OrderResponse>
+    public class CheckoutOrderHandler : IRequestHandler<CheckoutOrderCommand, OrderResponse>
     {
         private readonly IOrderRepository _orderRepository;
-        public CheckoutOrderCommandHandler(IOrderRepository orderRepository)
+        public CheckoutOrderHandler(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
         }
