@@ -6,6 +6,6 @@ namespace WebApp.ApiCollection.Interfaces
 {
     public interface IOrderApi
     {
-        Task<IEnumerable<OrderModel>> GetOrdersByUserName(string userName);
+        Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string userName);
     }
 }

@@ -17,7 +17,7 @@ namespace WebApp.ApiCollection
             _settings = settings;
         }
 
-        public async Task<IEnumerable<OrderModel>> GetOrdersByUserName(string userName)
+        public async Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string userName)
         {
             var message = new HttpRequestBuilder(_settings.BaseAddress)
                            .SetPath(_settings.OrderPath)
@@ -25,7 +25,7 @@ namespace WebApp.ApiCollection
                            .HttpMethod(HttpMethod.Get)
                            .GetHttpMessage();
 
-            return await SendRequest<IEnumerable<OrderModel>>(message);
+            return await SendRequest<IEnumerable<OrderResponseModel>>(message);
         }
     }
 }

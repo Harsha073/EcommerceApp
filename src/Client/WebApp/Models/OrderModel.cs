@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApp.Models
 {
-    public class OrderModel
+    public class OrderResponseModel
     {
         public string UserName { get; set; }
         public decimal TotalPrice { get; set; }
