@@ -37,3 +37,9 @@ services:
             context: .
             dockerfile: src/ApiGateway/OcelotAPIGateway/Dockerfile
 
+    webapp:
+        image: ${DOCKER_REGISTRY-}webapp
+        build:
+            context: .
+            dockerfile: src/Client/WebApp/Dockerfile
+
